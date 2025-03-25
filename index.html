@@ -15,6 +15,28 @@
   </head>
   <body>
     <!-- HEADER -->
+    <div class="semi-circle-progress">
+      <svg viewBox="0 0 100 50">
+        <path
+          class="progress-bg"
+          d="M 10 50 A 40 40 0 0 1 90 50"
+          fill="none"
+          stroke="#eee"
+          stroke-width="10"
+        />
+        <path
+          class="progress-bar"
+          d="M 10 50 A 40 40 0 0 1 90 50"
+          fill="none"
+          stroke="#FFD700"
+          stroke-width="10"
+          stroke-dasharray="126"
+          stroke-dashoffset="126"
+        />
+      </svg>
+      <span class="progress-label">0%</span>
+    </div>
+    
     <header class="header" id="home">
       <div class="container">
         <nav class="header-navigation" aria-label="navigation">
