@@ -433,3 +433,8 @@ form.sign-in-form {
   background-color: #a7a7a7c5;
 }
 
+.social-icon-img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}

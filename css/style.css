@@ -1,6 +1,6 @@
 :root {
-  --color-yellow: hsl(56, 99%, 52%);
-  --color-yellow-dark: hsl(56, 99%, 32%);
+  --color-yellow: 	hsl(31, 87%, 47%);
+  --color-yellow-dark: hsla(275, 53%, 51%, 0.773);
   --color-yellow-light: hsl(56, 99%, 82%);
   --color-black: hsl(0, 0%, 15%);
   --color-black-light: hsl(0, 0%, 22%);
@@ -85,6 +85,7 @@ section:nth-child(even) {
   font-size: 1.7rem;
   list-style: none;
   font-weight: 700;
+  text-decoration: none;
 }
 @media only screen and (max-width: 50em) {
   .header-navigation ul {
@@ -404,7 +405,7 @@ section:nth-child(even) {
   padding: 0.5rem 1rem;
 }
 .coaches-box .coache-content .c-card__content .c-name {
-  color: #e5383b;
+  color: #ffffff;
   text-transform: uppercase;
   font-weight: 700;
 }
