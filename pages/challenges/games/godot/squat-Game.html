@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Squat Game</title>
+  <style>
+    html, body, #canvas {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: black;
+    }
+
+    #canvas {
+      display: block;
+      outline: none;
+    }
+
+    #status, #status-splash, #status-progress {
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+
+    #status, #status-splash {
+      top: 0;
+      bottom: 0;
+    }
+
+    #status {
+      background-color: #242424;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+    }
+
+    #status-splash {
+      max-height: 100%;
+      max-width: 100%;
+      margin: auto;
+    }
+
+    #status-progress, #status-notice {
+      display: none;
+    }
+
+    #status-progress {
+      bottom: 10%;
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    #status-notice {
+      background-color: #5b3943;
+      border-radius: 0.5rem;
+      border: 1px solid #9b3943;
+      color: #e0e0e0;
+      font-family: sans-serif;
+      padding: 1rem;
+      text-align: center;
+      z-index: 1;
+      margin: 1rem;
+    }
+  </style>
+
+  <!-- Godot game metadata -->
+  <link rel="icon" href="squat-Game.icon.png" />
+  <link rel="apple-touch-icon" href="squat-Game.apple-touch-icon.png" />
+</head>
+
+<body>
+  <!-- Hidden camera feed for MediaPipe -->
+  <video id="hand-video" autoplay playsinline muted style="position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px;"></video>
+
+  <!-- Game canvas -->
+  <canvas id="canvas">Your browser does not support the canvas tag.</canvas>
+  <noscript>Your browser does not support JavaScript.</noscript>
+
+  <!-- Loading screen -->
+  <div id="status">
+    <img id="status-splash" src="squat-Game.png" alt="">
+    <progress id="status-progress"></progress>
+    <div id="status-notice"></div>
+  </div>
+
+  <!-- Godot loader -->
+  <script src="squat-Game.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.min.js"></script>
+
+  <script>
+    const GODOT_CONFIG = {
+      "args": [],
+      "canvasResizePolicy": 2,
+      "executable": "squat-Game",
+      "experimentalVK": false,
+      "fileSizes": {
+        "squat-Game.pck": 15228416,
+        "squat-Game.wasm": 43016933
+      },
+      "focusCanvas": true
+    };
+    const GODOT_THREADS_ENABLED = false;
+    const engine = new Engine(GODOT_CONFIG);
+    let godotInstance = null;
+
+    const statusOverlay = document.getElementById('status');
+    const statusProgress = document.getElementById('status-progress');
+    const statusNotice = document.getElementById('status-notice');
+
+    let initializing = true;
+    let statusMode = '';
+
+    function setStatusMode(mode) {
+      if (statusMode === mode || !initializing) return;
+      if (mode === 'hidden') {
+        statusOverlay.remove();
+        initializing = false;
+        return;
+      }
+      statusOverlay.style.visibility = 'visible';
+      statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
+      statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
+      statusMode = mode;
+    }
+
+    function setStatusNotice(text) {
+      statusNotice.innerHTML = text.replace(/\n/g, "<br>");
+    }
+
+    function displayFailureNotice(err) {
+      console.error(err);
+      setStatusNotice(typeof err === "string" ? err : err.message || "Unknown error");
+      setStatusMode('notice');
+      initializing = false;
+    }
+
+    const missing = Engine.getMissingFeatures({ threads: GODOT_THREADS_ENABLED });
+    if (missing.length !== 0) {
+      setStatusNotice("Missing browser features:\n" + missing.join("\n"));
+      setStatusMode('notice');
+    } else {
+      setStatusMode('progress');
+      engine.startGame({
+        onProgress: (curr, total) => {
+          statusProgress.value = curr;
+          statusProgress.max = total;
+        },
+      }).then(instance => {
+        godotInstance = instance;
+        setStatusMode('hidden');
+        startHandTracking(); // 🖐️ Start hand tracking only after game is loaded
+      }).catch(displayFailureNotice);
+    }
+
+    // 🖐️ Hand Tracking
+    function startHandTracking() {
+      let headY = null;
+      let handRaised = false;
+      const videoElement = document.getElementById("hand-video");
+
+      const hands = new Hands({
+        locateFile: file => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+      });
+
+      hands.setOptions({
+        maxNumHands: 1,
+        minDetectionConfidence: 0.7,
+        minTrackingConfidence: 0.7
+      });
+
+      hands.onResults(results => {
+        if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
+          const landmarks = results.multiHandLandmarks[0];
+          const wristY = landmarks[0].y;
+          const indexTipY = landmarks[8].y;
+
+          if (headY === null) headY = wristY - 0.2;
+
+          if (indexTipY < headY && !handRaised) {
+            handRaised = true;
+            console.log("🖐️ Hand raised - sending to Godot");
+
+            if (godotInstance) {
+              godotInstance.call("Main", "on_duck_signal");
+            }
+          }
+
+          if (indexTipY > headY) {
+            handRaised = false;
+          }
+        }
+      });
+
+      const camera = new Camera(videoElement, {
+        onFrame: async () => {
+          if (videoElement && videoElement.readyState >= 2) {
+            await hands.send({ image: videoElement });
+          }
+        },
+        width: 640,
+        height: 480
+      });
+
+      camera.start();
+    }
+  </script>
+</body>
+</html>
