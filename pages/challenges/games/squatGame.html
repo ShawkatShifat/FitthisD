@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Squat Game</title>
+  <link rel="stylesheet" href="./squatGame.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🏋️ Squat Challenge</h1>
+      <p>Do as many squats as you can in 30 seconds!</p>
+    </header>
+
+    <div class="game-area">
+      <!-- Godot game will be loaded here -->
+      <iframe src="./godot/squat-game.html" class="game-frame" allowfullscreen></iframe>
+    </div>
+
+    <div class="info-panel">
+      <div class="score">
+        <strong>Score:</strong> <span id="score-value">0</span>
+      </div>
+      <div class="timer">
+        <strong>Time Left:</strong> <span id="timer-value">30</span> seconds
+      </div>
+    </div>
+
+    <footer>
+      <button onclick="window.location.href='challenges.html'">← Back to Challenges</button>
+    </footer>
+  </div>
+</body>
+</html>

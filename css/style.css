@@ -637,7 +637,7 @@ section:nth-child(even) {
 /*Semi-circle progress bar*/
 
 .semi-circle-progress {
-  position: fixed;
+  position: absolute;
   top: 1rem;
   left: 1rem;
   width: 100px;
