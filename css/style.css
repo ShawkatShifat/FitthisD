@@ -616,7 +616,7 @@ section:nth-child(even) {
 
 .section-hero {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url('../img/header-bg-img.jpg');
+    url('../img/landing.jpg');
   background-size: cover;
   background-position: top;
   height: max(100vh, 60rem);
@@ -637,7 +637,7 @@ section:nth-child(even) {
 /*Semi-circle progress bar*/
 
 .semi-circle-progress {
-  position: fixed;
+  position: absolute;
   top: 1rem;
   left: 1rem;
   width: 100px;
@@ -654,10 +654,11 @@ section:nth-child(even) {
 
 .progress-label {
   position: absolute;
-  top: 30px;
-  left: 50%;
+  top: 17px;
+  left: 51%;
+  padding-bottom: 15px;
   transform: translateX(-50%);
   font-weight: bold;
   font-size: 14px;
-  color: #f1f1f1;
+  color: #e17c10;
 }
