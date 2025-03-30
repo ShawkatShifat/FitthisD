@@ -640,9 +640,10 @@ section:nth-child(even) {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  width: 100px;
+  width: 370px;
   height: 35px;
   z-index: 9999;
+  padding-left: 30px;
   text-align: center;
   font-family: sans-serif;
 }
@@ -655,7 +656,7 @@ section:nth-child(even) {
 .progress-label {
   position: absolute;
   top: 17px;
-  left: 51%;
+  left: 54%;
   padding-bottom: 15px;
   transform: translateX(-50%);
   font-weight: bold;
