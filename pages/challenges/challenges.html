@@ -2,27 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Challenges</title>
   <link rel="stylesheet" href="./challenges.css" />
 </head>
 <body>
+  <!-- Semi-Circle Progress Bar -->
+  <div class="semi-circle-progress">
+    <svg viewBox="0 0 100 50">
+      <path
+        class="progress-bg"
+        d="M 10 50 A 40 40 0 0 1 90 50"
+        fill="none"
+        stroke="#eee"
+        stroke-width="10"
+      />
+      <path
+        class="progress-bar"
+        d="M 10 50 A 40 40 0 0 1 90 50"
+        fill="none"
+        stroke="#FFD700"
+        stroke-width="10"
+        stroke-dasharray="126"
+        stroke-dashoffset="126"
+      />
+    </svg>
+    <span class="progress-label">0%</span>
+  </div>
+
+  <!-- Header Section -->
+  <header class="header" id="home">
+    <div class="header-container">
+      <nav class="header-navigation" aria-label="Main Navigation">
+        <div class="logo">
+          <span class="yellow">M</span>Fitness
+        </div>
+        <img
+          src="img/nav-icon.svg"
+          alt="Navigation Icon"
+          class="nav-icon"
+          width="30"
+          height="30"
+        />
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="../../index.html">Exercises</a></li>
+          <li><a href="pages/challenges/challenges.html">Challenges</a></li>
+          <li><a href="#Achievements">Achievements</a></li>
+          <li><a href="#About-us">About Us</a></li>
+          <li><a href="../../pages/signupAndlogin/loginsignup.html">Sign In</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
   <div class="container">
     <h1 class="title">💪 Challenges</h1>
-
     <div class="challenge-list">
       <div class="challenge-card">
         <h2>Challenge 1</h2>
         <p>Do 10 push-ups!</p>
         <button class="start-btn">Start</button>
       </div>
-
       <div class="challenge-card">
         <h2>Challenge 2</h2>
         <p>Complete 15 squats!</p>
         <button class="start-btn" onclick="window.location.href='games/squatGame.html'">Start</button>
       </div>
-
       <div class="challenge-card">
         <h2>Challenge 3</h2>
         <p>30-second plank!</p>

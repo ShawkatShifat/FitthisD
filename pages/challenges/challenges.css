@@ -1,52 +1,168 @@
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f5f5f5;
-    color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle 700px at top left, #e17c10c5, transparent),
+              radial-gradient(circle 700px at bottom right, #e17c10c5, transparent),
+              #030100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  width: 80%;
+  padding: 15px;
+  background: #555;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Title / Heading */
+.title {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 100;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+  color: #fff;
+}
+
+.header-container {
+  max-width: clamp(50rem, 85vw, 114rem);
+  padding: 0 0;
+  margin: 0 auto;
+}
+
+.header-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1rem;
+}
+
+.header-navigation ul {
+  display: flex;
+  list-style: none;
+  font-weight: 700;
+}
+
+.header-navigation ul li {
+  padding-left: 2rem;
+}
+
+.header-navigation ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.8rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border 0.3s;
+}
+
+.header-navigation ul li a:hover {
+  border-bottom: 2px solid #e17c10;
+}
+
+.header-navigation .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-icon {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .header-navigation ul {
+    display: none;
   }
-  
+  .nav-icon {
+    display: block;
+  }
+}
+
+.yellow {
+  color: #e17c10;
+}
+
+/* Semi-Circle Progress Bar */
+.semi-circle-progress {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 60px;
+  height: 3px;
+  z-index: 1000;
+  padding-bottom: 5px;
+  padding-left: 30px;
+  text-align: center;
+}
+
+.progress-label {
+  position: absolute;
+  top: 17px;
+  left: 56%;
+  font-weight: bold;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* Challenge Cards */
+.challenge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.challenge-card {
+  background: #e17c10;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 111, 111, 0.1);
+}
+
+.challenge-card h2 {
+  color: #444;
+}
+
+/* Buttons */
+.start-btn {
+  width: 300px;
+  background: #4a4747;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.start-btn:hover {
+  background: #6a6a6a;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
   .container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 0 20px;
+    width: 90%;
+    padding: 15px;
   }
-  
   .title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+    font-size: 1.5rem;
   }
-  
-  .challenge-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .challenge-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .challenge-card h2 {
-    margin-top: 0;
-  }
-  
   .start-btn {
-    margin-top: 10px;
-    padding: 10px 16px;
-    font-size: 1rem;
-    border: none;
-    background: #4caf50;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s;
+    width: 100%;
   }
-  
-  .start-btn:hover {
-    background: #45a049;
-  }
-  
+}
