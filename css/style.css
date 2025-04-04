@@ -340,163 +340,145 @@ section:nth-child(even) {
   height: 50rem;
 }
 
-.section-coaches {
-  padding: clamp(4rem, 10vw, 12rem) 0rem;
+/* Yoga */
+
+.yoga-box {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--two-col-layout),
+    minmax(min-content, 1fr)
+  );
+  column-gap: var(--grid-column-gap);
+  row-gap: var(--grid-row-gap);
+  align-items: center;
 }
 
-.coaches-box .coache-heading {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  text-align: center;
-  margin-bottom: 4rem;
+.yoga {
   max-height: 100%;
-}
-
-.coaches-box .coache-content {
-  display: grid;
-  grid-template-columns: repeat(
-    var(--three-col-layout),
-    minmax(min-content, 1fr)
-  );
-  gap: 3rem;
-}
-.coaches-box .coache-content .c-card {
-  position: relative;
-}
-.coaches-box .coache-content .c-card__img {
-  background-position: center;
-  background-size: cover;
-  max-width: 100%;
-  height: 100%;
-  border-left: 2px solid var(--color-yellow);
-}
-.coaches-box .coache-content .c-card .overlay {
-  position: absolute;
-  top: 0%;
-  right: 0;
-  color: #fff;
-  width: 0%;
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: rgba(43, 43, 43, 0.9);
-  transition: width 0.4s;
-}
-.coaches-box .coache-content .c-card .overlay * {
-  flex: 1;
-}
-.coaches-box .coache-content .c-card__content {
-  position: absolute;
-  bottom: 0;
-  background: linear-gradient(
-    to right,
-    var(--color-yellow),
-    var(--color-yellow-dark)
-  );
-  color: #000;
-  clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
-  width: 70%;
-  padding: 0.5rem 1rem;
-}
-.coaches-box .coache-content .c-card__content .c-name {
-  color: #ffffff;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-.coaches-box .coache-content .c-card__content .c-title {
-  text-transform: capitalize;
-}
-.coaches-box .coache-content .c-card:hover .overlay {
-  width: 16%;
-}
-.coaches-box .coache-content .c-card:hover .c-card__img {
-  filter: brightness(0.8);
-}
-
-.section-review {
-  padding: clamp(4rem, 10vw, 12rem) 0rem;
-}
-
-.review-box {
-  display: grid;
-  grid-template-columns: repeat(
-    var(--two-col-layout),
-    minmax(min-content, 1fr)
-  );
-  column-gap: var(--grid-column-gap);
-  row-gap: var(--grid-row-gap);
-}
-
-.review-card {
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.review-card__image {
-  max-width: 100%;
-  height: auto;
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-}
-.review-card__content {
-  padding: 2rem 0rem;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  position: relative;
-}
-.review-card__content .text {
-  font-style: italic;
-}
-.review-card__content .name {
-  font-style: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  padding-top: 1.5rem;
-}
-.review-card__content::before {
-  content: '\201F';
-  display: block;
-  font-size: 12rem;
-  color: rgba(0, 0, 0, 0.8);
-  position: absolute;
-  top: -7rem;
-  left: -1rem;
-}
-
-.contact-box {
-  display: grid;
-  grid-template-columns: repeat(
-    var(--two-col-layout),
-    minmax(min-content, 1fr)
-  );
-  column-gap: var(--grid-column-gap);
-  row-gap: var(--grid-row-gap);
-}
-
-.form-grp {
-  display: grid;
-  row-gap: 3rem;
   padding: 4rem 2.4rem;
 }
 
-.form-flex {
-  justify-self: flex-start;
+.yoga-img {
+  background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(254, 239, 27, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    url('../img/yoga.jpg');
+  filter: brightness(0.8);
+  background-position: center;
+  background-size: cover;
+  max-width: 100%;
+  height: 40rem;
+  border-radius: 10px;
 }
 
-#mapid {
-  height: 55rem;
-  width: 100%;
+/* Strength Training */
+
+.strength-box {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--two-col-layout),
+    minmax(min-content, 1fr)
+  );
+  column-gap: var(--grid-column-gap);
+  row-gap: var(--grid-row-gap);
+  align-items: center;
 }
+
+.strength {
+  max-height: 100%;
+  padding: 4rem 2.4rem;
+}
+
+.strength-img {
+  background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(254, 239, 27, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    url('../img/strength.jpg');
+  filter: brightness(0.8);
+  background-position: center;
+  background-size: cover;
+  max-width: 100%;
+  height: 40rem;
+  border-radius: 10px;
+}
+
+/* Full Body Work Out */
+
+.fbw-box {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--two-col-layout),
+    minmax(min-content, 1fr)
+  );
+  column-gap: var(--grid-column-gap);
+  row-gap: var(--grid-row-gap);
+  align-items: center;
+}
+
+.fbw {
+  max-height: 100%;
+  padding: 4rem 2.4rem;
+}
+
+.fbw-img {
+  background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(254, 239, 27, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    url('../img/fbw.jpg');
+  filter: brightness(0.8);
+  background-position: center;
+  background-size: cover;
+  max-width: 100%;
+  height: 40rem;
+  border-radius: 10px;
+}
+
+/* Cardio */
+
+.cardio-box {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--two-col-layout),
+    minmax(min-content, 1fr)
+  );
+  column-gap: var(--grid-column-gap);
+  row-gap: var(--grid-row-gap);
+  align-items: center;
+}
+
+.cardio {
+  max-height: 100%;
+  padding: 4rem 2.4rem;
+}
+
+.cardio-img {
+  background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(254, 239, 27, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    url('../img/cardio.jpg');
+  filter: brightness(0.8);
+  background-position: center;
+  background-size: cover;
+  max-width: 100%;
+  height: 40rem;
+  justify-content: right;
+  border-radius: 10px;
+}
+
+
+/* Footer */
 
 .section-footer {
   background-color: var(--color-black);
