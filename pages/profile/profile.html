@@ -8,75 +8,51 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="semi-circle-progress">
-        <svg viewBox="0 0 100 50">
-          <path
-            class="progress-bg"
-            d="M 10 50 A 40 40 0 0 1 90 50"
-            fill="none"
-            stroke="#eee"
-            stroke-width="10"
-          />
-          <path
-            class="progress-bar"
-            d="M 10 50 A 40 40 0 0 1 90 50"
-            fill="none"
-            stroke="#FFD700"
-            stroke-width="10"
-            stroke-dasharray="126"
-            stroke-dashoffset="126"
-          />
-        </svg>
-        <span class="progress-label">0%</span>
-      </div>
-      
-      <header class="header" id="home">
-        <div class="container">
-          <nav class="header-navigation" aria-label="navigation">
-            <div class="logo"><span class="yellow">M</span>Fitness</div>
-  
-            <img
-              src="img/nav-icon.svg"
-              alt="navigation icon"
-              class="nav-icon"
-              width="30"
-              height="30"
-            />
-  
-            <ul>
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="../../index.html">Exercises</a>
-              </li>
-              <li>
-                <a href="pages/challenges/challenges.html">Challanges</a>
-              </li>
-              <li>
-                <a href="#Achievements">Achievements</a>
-              </li>
-              <li>
-                <a href="#About us">About us</a>
-              </li>
-              <li>
-                <a href="../../pages/signupAndlogin/loginsignup.html">Sign In</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+  <div class="semi-circle-progress">
+    <svg viewBox="0 0 100 50">
+      <path
+        class="progress-bg"
+        d="M 10 50 A 40 40 0 0 1 90 50"
+        fill="none"
+        stroke="#eee"
+        stroke-width="10"
+      />
+      <path
+        class="progress-bar"
+        d="M 10 50 A 40 40 0 0 1 90 50"
+        fill="none"
+        stroke="#FFD700"
+        stroke-width="10"
+        stroke-dasharray="126"
+        stroke-dashoffset="126"
+      />
+    </svg>
+    <span class="progress-label">0%</span>
+  </div>
+
+  <header class="header" id="home">
+    <div class="container">
+      <nav class="header-navigation" aria-label="navigation">
+        <div class="logo"><span class="yellow">M</span>Fitness</div>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="../../index.html">Exercises</a></li>
+          <li><a href="pages/challenges/challenges.html">Challanges</a></li>
+          <li><a href="#Achievements">Achievements</a></li>
+          <li><a href="#About us">About us</a></li>
+          <li><a href="../../pages/signupAndlogin/loginsignup.html">Sign In</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main class="profile-container">
-    <!-- Top Row -->
+    <!-- Top Section -->
     <section class="top-section">
-      <!-- Section 1: Avatar & Name -->
       <section class="avatar-name">
         <img src="../../img/abstract.jpg" alt="Avatar" class="avatar" />
         <h2 class="username">John Doe</h2>
       </section>
-
-      <!-- Section 2: Badges -->
       <section class="badges">
         <img src="../../img/badge1.png" class="badge-img">
         <img src="../../img/badge1.png" class="badge-img">
@@ -85,40 +61,58 @@
       </section>
     </section>
 
-    <!-- Bottom Row -->
-    <section class="bottom-section">
-      <!-- Section 3: Progress Bars -->
-      <section class="progress-bars">
-        <div class="progress-item">
-            <img class="progress-gif" src="../../img/plank.gif">
-            <h1>Plank</h2>
-            <progress value="80" max="100"></progress>
-        </div>
-        <div class="progress-item">
-            <img class="progress-gif" src="../../img/squat.gif">
-            <h1>Squat</h2>
-            <progress value="80" max="100"></progress>
-        </div>
-        <div class="progress-item">
-            <img class="progress-gif" src="../../img/pushup.gif">
-            <h1>Full Body Training</h2>
-            <progress value="80" max="100"></progress>
-        </div>
-        <div class="progress-item">
-            <img class="progress-gif" src="../../img/plank.gif">
-            <h1>Plank</h2>
-            <progress value="80" max="100"></progress>
-        </div>
-      </section>
+      <!-- Bottom Row -->
+      <section class="bottom-section">
 
-      <!-- Section 4: Spider Chart -->
-      <section class="spider-chart">
-        <canvas id="skillsChart"></canvas>
-      </section>
+        <!-- User Info (20%) -->
+        <section class="user-info">
+            <h2 class="username">User Details</h2>
+            <p>Email: john.doe@example.com</p>
+            <p>Age: 28</p>
+            <p>Membership: Premium</p>
+            <p>Goals: Muscle Gain, Flexibility</p>
+            <p>Goals: Muscle Gain, Flexibility</p>
+            <p>Goals: Muscle Gain, Flexibility</p>
+            <p>Goals: Muscle Gain, Flexibility</p>
+            <p>Goals: Muscle Gain, Flexibility</p>
+            <p>Goals: Muscle Gain, Flexibility</p>
+            <p>Goals: Muscle Gain, Flexibility</p>
+        </section>
+  
+        <!-- Progress Bars (40%) -->
+        <section class="progress-bars">
+          <div class="progress-item">
+            <img class="progress-gif" src="../../img/arms_pic.png" alt="Arms Icon"/>
+            <h1>Plank</h1>
+            <p id="arms-count">Arms reps: 0</p>
+          </div>
+          <div class="progress-item">
+            <img class="progress-gif" src="../../img/legs_pic.webp" alt="Legs Icon"/>
+            <h1>Squat</h1>
+            <p id="squat-count">Legs reps: 0</p>
+          </div>
+          <div class="progress-item">
+            <img class="progress-gif" src="../../img/chest_pic.webp" alt="Chest Icon"/>
+            <h1>Full Body Training</h1>
+            <p id="chest-count">Chest reps: 0</p>
+        </div>
+        <div class="progress-item">
+                <img class="progress-gif" src="../../img/back_pic.webp" alt="Back Icon">
+                <h1>Full Body Training</h1>
+                <p id="back-count">Back reps: 0</p>
+        </div>
+    </div>
     </section>
-
+  
+        <!-- Spider Chart (40%) -->
+        <section class="spider-chart">
+          <canvas id="skillsChart"></canvas>
+        </section>
+  
+      </section>
   </main>
-
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
   <script src="../../pages/profile/profile.js"></script>
 </body>
 </html>
