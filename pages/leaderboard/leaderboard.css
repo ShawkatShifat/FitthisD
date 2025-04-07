@@ -133,7 +133,7 @@ body {
   transition: border 0.5s;
 }
 .header-navigation ul li a:hover {
-  border-bottom: 2px solid var(--color-yellow);
+  border-bottom: 2px solid #e17c10;
 }
 .header-navigation .logo {
   font-size: 1.6rem;

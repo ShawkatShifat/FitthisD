@@ -1,0 +1,226 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #000000;
+    margin: 0;
+    width: 100%;
+  }
+  
+/* Header */
+.semi-circle-progress {
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    width: 90px;
+    height: 35px;
+    z-index: 9999;
+    text-align: center;
+    font-family: sans-serif;
+    padding-bottom: 7px;
+  }
+  
+  .semi-circle-progress svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .progress-label {
+    position: absolute;
+    top: 17px;
+    left: 51%;
+    padding-bottom: 20px;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 12px;
+    color: #e17c10;
+  }
+
+  .header {
+  position: absolute;
+  height: 60px;
+  top: 0;
+  right: 0;
+  color: #fff;
+  width: 100%;
+  z-index: 100;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+}
+
+.header-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 5rem;
+}
+.header-navigation ul {
+  display: flex;
+  text-transform: capitalize;
+  font-size: 1rem;
+  list-style: none;
+  font-weight: 700;
+  text-decoration: none;
+}
+@media only screen and (max-width: 50em) {
+  .header-navigation ul {
+    display: none;
+  }
+}
+.header-navigation ul li {
+  padding-left: 2rem;
+}
+.header-navigation ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 1rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border 0.5s;
+}
+.header-navigation ul li a:hover {
+  border-bottom: 2px solid #e17c10;
+}
+.header-navigation .logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-left: 50px;
+}
+.header-navigation .nav-icon {
+  display: none;
+  border: 1px solid #fff;
+}
+@media only screen and (max-width: 50em) {
+  .header-navigation .nav-icon {
+    display: block;
+  }
+}
+
+  .profile-container {
+    max-width: 100%;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Top section layout */
+  .top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding-top: 90px;
+    padding-left: 60px;
+    background-color: #ff3ce8;
+  }
+  
+  /* Avatar and name section */
+  .avatar-name {
+    display: block;
+    align-items: center;
+    gap: 20px;
+    color: #000000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    padding: 1px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #3498db;
+  }
+  
+  .username {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  /* Badges section */
+  .badges {
+    display: flex;
+    gap: 90px;
+    font-size: 10rem;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+
+  .badge-img{
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Bottom section layout */
+  .bottom-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    padding: 20px;
+    background-color: #ff3ce8;
+    flex-wrap: wrap;
+  }
+  
+  .progress-gif{
+    margin-left: 10px;
+    display: inline;
+    height: 50px;
+    width: 80px;  
+  }
+
+  .progress-bars {
+    flex: 1;
+    width: 30px;
+  }
+  
+  .progress-item {
+    margin-bottom: 10px;
+  }
+
+  .progress-item h1{
+    padding-left: 20px;
+  }
+  .progress-item label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+  
+  progress {
+    width: 100%;
+    height: 20px;
+    appearance: none;
+  }
+  
+  progress::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 10px;
+  }
+  
+  progress::-webkit-progress-value {
+    background-color: #3498db;
+    border-radius: 10px;
+  }
+  
+  .spider-chart {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Optional: Responsive layout */
+  @media (max-width: 600px) {
+    .top-section,
+    .bottom-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .badges {
+      margin-top: 10px;
+    }
+  }
+  

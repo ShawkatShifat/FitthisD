@@ -58,24 +58,30 @@
 
   <!-- Main Content Container -->
   <div class="container">
-    <h1 class="title">💪 Challenges</h1>
+    <h1 class="title">Challenges</h1>
     <div class="challenge-list">
-      <div class="challenge-card">
-        <h2>Challenge 1</h2>
+      <div class="challenge-card" id="cc1">
+        <h2>Challenge 1</h2><img class="challenge-gif" src="../../img/pushup.gif">
         <p>Do 10 push-ups!</p>
-        <button class="start-btn">Start</button>
+        <button class="start-btn" id="#" disabled>Start</button>
+        <button id="#" class="reset-btn">Reset Level</button>
       </div>
-      <div class="challenge-card">
-        <h2>Challenge 2</h2>
+      <div class="challenge-card" id="cc2">
+        <h2>Challenge 2</h2><img class="challenge-gif" src="../../img/squat.gif">
         <p>Complete 15 squats!</p>
-        <button class="start-btn" onclick="window.location.href='games/squatGame.html'">Start</button>
+        <button class="start-btn" id="squat-btn" disabled>Start</button>
+        <button id="reset-btn" class="reset-btn">Reset Level</button>
       </div>
-      <div class="challenge-card">
-        <h2>Challenge 3</h2>
+      <div class="challenge-card" id="cc3">
+        <h2>Challenge 3</h2><img class="challenge-gif" src="../../img/plank.gif">
         <p>30-second plank!</p>
-        <button class="start-btn">Start</button>
+        <button class="start-btn" id="#" disabled>Start</button>
+        <button id="#" class="reset-btn">Reset Level</button>
       </div>
     </div>
   </div>
 </body>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+<script src="challenges.js"></script>
 </html>

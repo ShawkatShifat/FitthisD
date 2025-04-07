@@ -13,17 +13,19 @@ body {
 
 .container {
   text-align: center;
-  width: 80%;
-  padding: 15px;
+  width: 60%;
+  padding: 10px;
+  margin-top: 60px;
+  padding-bottom: 30px;
   background: #555;
-  border-radius: 10px;
+  border-radius: 50px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Title / Heading */
 .title {
   font-size: 2rem;
-  color: #ffffff;
+  color: #050000;
   margin-bottom: 20px;
 }
 
@@ -125,32 +127,125 @@ body {
   gap: 20px;
 }
 
+/* Base style for each card */
 .challenge-card {
-  background: #e17c10;
   padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 111, 111, 0.1);
+  width: 90%;
+  align-self: center;
+  border-radius: 50px;
+  box-shadow: 10px 10px 5px rgba(254, 255, 255, 0.1);
+  transition: transform 1s ease, filter 0.3s ease;
+  cursor: pointer;
+  z-index: 1;
 }
 
-.challenge-card h2 {
+
+.challenge-card:hover {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+  z-index: 2;
+}
+
+/* Scale down sibling cards */
+.challenge-list:hover .challenge-card:not(:hover) {
+  transform: scale(0.95);
+  filter: brightness(0.8);
+}
+
+#cc1{
+  background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.601),
+      rgba(255, 255, 255, 0.601),
+      rgba(255, 255, 255, 0.601)
+    ),
+    url('../../img/abstract.jpg');
+  background-size: cover;        /* Make the image cover the whole card */
+  background-position: center;   /* Center the image */
+  background-repeat: no-repeat; 
+}
+
+#cc2{
+  background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.601),
+      rgba(255, 255, 255, 0.601),
+      rgba(255, 255, 255, 0.601)
+    ),
+    url('../../img/abstract.jpg');
+  background-size: cover;        /* Make the image cover the whole card */
+  background-position: center;   /* Center the image */
+  background-repeat: no-repeat; 
+}
+
+#cc3{
+  background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.601),
+      rgba(255, 255, 255, 0.601),
+      rgba(255, 255, 255, 0.601)
+    ),
+    url('../../img/abstract.jpg');
+  background-size: cover;        /* Make the image cover the whole card */
+  background-position: center;   /* Center the image */
+  background-repeat: no-repeat; 
+}
+
+.challenge-card h1 {
   color: #444;
+  font-size: 1.5rem;
+}
+
+.challenge-card h2{
+  display: inline;
+}
+
+.challenge-gif{
+  margin-left: 10px;
+  display: inline;
+  height: 30px;
+  width: 40px;  
 }
 
 /* Buttons */
 .start-btn {
-  width: 300px;
+  width: 200px;
   background: #4a4747;
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
-  border-radius: 50px;
+  border-radius: 20px;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .start-btn:hover {
   background: #6a6a6a;
+}
+
+#level-badge {
+  font-weight: bold;
+  margin-left: 8px;
+  color: #007bff;
+}
+
+
+.reset-btn {
+  width: 200px;
+  background: #4a4747;
+  color: white;
+  border: none;
+  margin-left: 50px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.reset-btn:hover {
+  background-color: #d32f2f;
 }
 
 /* Responsive Design */
